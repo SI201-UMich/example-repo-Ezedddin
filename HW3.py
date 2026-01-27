@@ -48,10 +48,16 @@ class CouponDispenser:
             str
         """
         # TODO: Implement per instructions
-        self.coupon_cards = [ "10% off" | "Free small coffee" |"Buy 1 get 1 half off" | "Free extra espresso shot" | "",
-            ]
+        self.coupon_cards = [ "10% off", "Free small coffee", "Buy 1 get 1 half off", "Free extra espresso shot", ""]
         
-        return f"coupon: {self.coupon_cards}"
+        print(f"coupon: {self.coupon_cards}")
+
+        for coupon in self.coupon_cards:
+            if coupon[-1]:
+                return coupon
+            elif coupon:
+                return coupon + "|"
+
 
     def issue_coupon(self, name):
         """
@@ -69,6 +75,7 @@ class CouponDispenser:
         """
         # TODO: Implement per instructions
         pass
+
 
     def distribute_session(self):
         """
