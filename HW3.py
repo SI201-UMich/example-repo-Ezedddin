@@ -50,13 +50,15 @@ class CouponDispenser:
         # TODO: Implement per instructions
         self.coupon_cards = [ "10% off", "Free small coffee", "Buy 1 get 1 half off", "Free extra espresso shot", ""]
         
-        print(f"coupon: {self.coupon_cards}")
 
         for coupon in self.coupon_cards:
             if coupon[-1]:
                 return coupon
             elif coupon:
                 return coupon + "|"
+        
+        return self.coupon_cards
+
 
 
     def issue_coupon(self, name):
@@ -74,7 +76,15 @@ class CouponDispenser:
             str: message as described above
         """
         # TODO: Implement per instructions
-        pass
+        results = []
+
+        random.shuffle(self.coupon_cards)
+        for i in range(len(name)):
+            results.append(name[i], self.coupon_cards[i])
+
+        return results
+
+
 
 
     def distribute_session(self):
